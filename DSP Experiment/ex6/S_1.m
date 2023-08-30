@@ -1,0 +1,54 @@
+clear all;
+close all;
+x1 = [1 1 1 1];
+X11 = MyDft(x1, 8);
+X12 = MyDft(x1, 32);
+X21 = fft(x1, 8);
+X22 = fft(x1, 32);
+figure
+stem(x1, 'filled', 'markersize', 3);
+title('原始数字序列')
+xlabel('$n$', 'Interpreter', 'latex');
+ylabel('$x_1[n]$', 'Interpreter', 'latex');
+figure
+subplot(2, 2, 1);
+stem(0:(length(X11) - 1), abs(X11), 'filled', 'markersize', 3);
+title('自编函数8点DFT幅频特性');
+xlabel('$k$', 'Interpreter', 'latex');
+ylabel('$|X_{11}[k]|$', 'Interpreter', 'latex');
+subplot(2, 2, 2);
+stem(0:(length(X11) - 1), angle(X11), 'filled', 'markersize', 3);
+title('自编函数8点DFT相频特性');
+xlabel('$k$', 'Interpreter', 'latex');
+ylabel('$\angle{X_{11}[k]}$', 'Interpreter', 'latex');
+subplot(2, 2, 3);
+stem(0:(length(X12) - 1), abs(X12), 'filled', 'markersize', 3);
+title('自编函数32点DFT幅频特性');
+xlabel('$k$', 'Interpreter', 'latex');
+ylabel('$|X_{12}[k]|$', 'Interpreter', 'latex');
+subplot(2, 2, 4);
+stem(0:(length(X12) - 1), angle(X12), 'filled', 'markersize', 3);
+title('自编函数32点DFT相频特性');
+xlabel('$k$', 'Interpreter', 'latex');
+ylabel('$\angle{X_{12}[k]}$', 'Interpreter', 'latex');
+figure
+subplot(2, 2, 1);
+stem(0:(length(X21) - 1), abs(X21), 'filled', 'markersize', 3);
+title('FFT函数8点DFT幅频特性');
+xlabel('$k$', 'Interpreter', 'latex');
+ylabel('$|X_{21}[k]|$', 'Interpreter', 'latex');
+subplot(2, 2, 2);
+stem(0:(length(X21) - 1), angle(X21), 'filled', 'markersize', 3);
+title('FFT函数8点DFT相频特性');
+xlabel('$k$', 'Interpreter', 'latex');
+ylabel('$\angle{X_{21}[k]}$', 'Interpreter', 'latex');
+subplot(2, 2, 3);
+stem(0:(length(X22) - 1), abs(X22), 'filled', 'markersize', 3);
+title('FFT函数32点DFT幅频特性');
+xlabel('$k$', 'Interpreter', 'latex');
+ylabel('$|X_{22}[k]|$', 'Interpreter', 'latex');
+subplot(2, 2, 4);
+stem(0:(length(X22) - 1), angle(X22), 'filled', 'markersize', 3);
+title('FFT函数32点DFT相频特性');
+xlabel('$k$', 'Interpreter', 'latex');
+ylabel('$\angle{X_{22}[k]}$', 'Interpreter', 'latex');
