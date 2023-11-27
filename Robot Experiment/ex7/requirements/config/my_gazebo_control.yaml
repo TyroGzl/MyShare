@@ -1,0 +1,38 @@
+aubo_i5:
+  # publish all joint states--------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  # Gazebo use controller that ros_control(joint_position_controller)
+  # Position Controllers------------------
+  shoulder_joint_effort_controller:
+    type: effort_controllers/JointEffortController
+    joint: shoulder_joint
+    pid: {p: 100000.0,  i: 1.0, d: 10.0}
+
+  upperArm_joint_effort_controller:
+    type: effort_controllers/JointEffortController
+    joint: upperArm_joint
+    pid: {p: 10000.0,  i: 0.01, d: 10.0}
+
+  foreArm_joint_effort_controller:
+    type: effort_controllers/JointEffortController
+    joint: foreArm_joint
+    pid: {p: 10000.0,  i: 0.01, d: 100.0}
+
+  wrist1_joint_effort_controller:
+    type: effort_controllers/JointEffortController
+    joint: wrist1_joint
+    pid: {p: 100000.0,  i: 0.01, d: 10.0}
+
+  wrist2_joint_effort_controller:
+    type: effort_controllers/JointEffortController
+    joint: wrist2_joint
+    pid: {p: 1000.0,  i: 0.01, d: 10.0}
+
+  wrist3_joint_effort_controller:
+    type: effort_controllers/JointEffortController
+    joint: wrist3_joint
+    # pid: {p: 100.0,  i: 0.01, d: 10.0}
+
